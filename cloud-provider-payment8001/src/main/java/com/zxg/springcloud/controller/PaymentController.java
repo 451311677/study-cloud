@@ -22,7 +22,7 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping("/create")
-    public CommonResult<?> create(Payment payment) {
+    public CommonResult<?> create(@RequestBody Payment payment) {
 //        Payment payment = new Payment();
 //        payment.setSerial("123");
         int result = paymentService.create(payment);
