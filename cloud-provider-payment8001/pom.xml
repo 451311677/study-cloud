@@ -40,9 +40,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+        <!-- 热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <!-- 依赖的范围，有助于确定在这个项目的分发中包含哪些工件 -->
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>

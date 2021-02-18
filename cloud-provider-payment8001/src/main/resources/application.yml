@@ -4,7 +4,7 @@ server:
     context-path: /
 spring:
   application:
-    name: cloud-payment-service
+    name: cloud-provider-payment
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
