@@ -42,6 +42,14 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- 引入自己定义的api通用包，可以使用pyment支付Entity -->
+
+        <dependency>
+            <groupId>com.zxg.springcloud</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
