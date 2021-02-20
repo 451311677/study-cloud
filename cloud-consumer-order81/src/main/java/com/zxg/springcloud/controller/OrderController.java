@@ -20,7 +20,12 @@ import org.springframework.web.client.RestTemplate;
 //@RequestMapping("consumer")
 public class OrderController {
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //单机版
+//    public static final String PAYMENT_URL = "http://localhost:8001";
+
+    //集群吧，使用微服务名称来调用
+    //需要@LoadBalanced注解修饰RestTemplate，否则restTemplate无法识别微服务名称
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Autowired
     private RestTemplate restTemplate;
