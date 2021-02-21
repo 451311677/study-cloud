@@ -1,0 +1,12 @@
+# 8004 表示注册到zookeeper服务器的支付服务提供者端口号
+server:
+  port: 81
+
+spring:
+  application:
+    # 服务别名
+    name: cloud-consumer-order
+  cloud:
+    zookeeper:
+      # zookeeper集群，注册进集群的节点是临时性的
+      connect-string: 192.168.137.6:2181,192.168.137.98:2181,192.168.137.81:2181
