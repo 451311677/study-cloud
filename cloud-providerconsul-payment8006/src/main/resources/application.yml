@@ -1,0 +1,17 @@
+# Springcloud \u5FAE\u670D\u52A1\u6CE8\u518C\u8FDBConsul
+# \u542F\u52A8Consul ,\u8FDB\u5165consul.exe\u76EE\u5F55\uFF1Aconsul agent -dev
+# \u67E5\u770BConsul\u9996\u9875\uFF1A http://localhost:8500/
+server:
+  port: 8006
+spring:
+  application:
+    name: consul-provider-payment
+  cloud:
+    # consul \u6CE8\u518C\u4E2D\u5FC3\u5730\u5740
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+
