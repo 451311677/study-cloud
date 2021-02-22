@@ -11,5 +11,4 @@ public class ConsulPayment8006Application {
     public static void main(String[] args) {
         SpringApplication.run(ConsulPayment8006Application.class, args);
     }
-
 }
