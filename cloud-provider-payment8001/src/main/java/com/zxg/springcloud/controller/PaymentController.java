@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author xiaogang.zhang
@@ -73,5 +74,18 @@ public class PaymentController {
         instances.forEach(instance->log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri()));
 
         return this.discoveryClient;
+    }
+
+    //测试OpenFeign 超时控制
+    @GetMapping("/feign/timeout")
+    public String paymentFeignTimeout(){
+        //暂停几秒钟线程
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return serverPort;
     }
 }
