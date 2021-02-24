@@ -36,13 +36,13 @@ public class OrderHystrixController {
     @HystrixCommand
     @GetMapping("/payment/hystrix/ok/{id}")
     public String paymentInfoOK(@PathVariable("id") Integer id){
-        int a = 10/0;
+//        int a = 10/0;
         return paymentHystrixService.paymentInfoOK(id);
     }
 
 
     /**
-     * 消费者端 定义兜底处理fallback,
+     * 消费者端 定义兜底处理fallback,捕捉运行异常，超时异常
      * @param id
      * @return
      */
@@ -51,8 +51,8 @@ public class OrderHystrixController {
             //设置自身调用超时时间的峰值,峰值内可以正常运行,  超过了需要有兜底的方法处理,做服务降级fallback
             @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="3000")
     })
-    public String paymentInfoError(@PathVariable("id") Integer id){
-        return paymentHystrixService.paymentInfoError(id);
+    public String paymentInfoTimeOut(@PathVariable("id") Integer id){
+        return paymentHystrixService.paymentInfoTimeOut(id);
     }
 
     /**

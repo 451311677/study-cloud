@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @description
  */
 @Component
-@FeignClient("CLOUD-PROVIDER-HYSTRIX-PAYMENT")
+//fallback指定类兜底下面的方法,8001宕机处理
+@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT",fallback = PaymenFallbackService.class)
 public interface PaymentHystrixService {
 
     @GetMapping("/payment/hystrix/ok/{id}")
@@ -19,5 +20,5 @@ public interface PaymentHystrixService {
 
 
     @GetMapping("/payment/hystrix/timeout/{id}")
-    public String paymentInfoError(@PathVariable("id") Integer id);
+    public String paymentInfoTimeOut(@PathVariable("id") Integer id);
 }
