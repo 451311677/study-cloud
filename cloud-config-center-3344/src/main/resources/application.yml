@@ -1,0 +1,30 @@
+server:
+  port: 3344
+spring:
+  application:
+    # 注册进Eureka 服务器的微服务名
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/451311677/springcloud-config.git
+          # 搜索目录
+          search-paths:
+            - springcloud-config
+          basedir: cloud-config-center-3344/basedir
+          username: 451311677@qq.com
+          password: 451311677zxg
+          default-label: master
+#          skip-ssl-validation: true
+#          force-pull: true
+#          clone-on-start: true
+#          basedir: D:\Program Files (x86)\IntelliJ IDEA 2020.3\projects\study-cloud\cloud-config-center-3344\basedir
+
+      # 读取分支
+#      label: master
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
