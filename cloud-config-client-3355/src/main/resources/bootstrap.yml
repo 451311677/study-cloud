@@ -1,0 +1,22 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    # Config 客户端配置
+    config:
+      # 开启服务发现，使用配置中心服务名
+      discovery:
+        enabled: true
+        service-id: CLOUD-CONFIG-CENTER
+      label: master   # 分支名称
+      name: config    # 配置文件名称
+      profile: dev    # 读取后缀名称
+      #uri: http://localhost:3344 # 配置中心地址
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
