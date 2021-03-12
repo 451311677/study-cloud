@@ -17,7 +17,7 @@ spring:
           password: 451311677zxg
           default-label: master
 #          skip-ssl-validation: true
-#          force-pull: true
+          force-pull: true
 #          clone-on-start: true
 #          basedir: D:\Program Files (x86)\IntelliJ IDEA 2020.3\projects\study-cloud\cloud-config-center-3344\basedir
 
