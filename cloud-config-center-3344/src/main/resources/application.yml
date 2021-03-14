@@ -8,23 +8,53 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/451311677/springcloud-config.git
+          # github
+          #uri: https://github.com/451311677/springcloud-config.git
+          # 码云
+          uri: https://gitee.com/zhang_xiaogang99/springcloud-config.git
           # 搜索目录
           search-paths:
             - springcloud-config
           basedir: cloud-config-center-3344/basedir
-          username: 451311677@qq.com
+          # username: 451311677@qq.com
+          username: 15129949935
           password: 451311677zxg
           default-label: master
 #          skip-ssl-validation: true
           force-pull: true
 #          clone-on-start: true
 #          basedir: D:\Program Files (x86)\IntelliJ IDEA 2020.3\projects\study-cloud\cloud-config-center-3344\basedir
-
       # 读取分支
 #      label: master
 
+  # rabbitmq相关配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+
+# 服务注册到eureka 地址
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+
+# rabbitmq 相关配置，暴露bus刷新配置的端点
+# 一次发送，处处生效
+# curl -X POST "http://localhost:3344/actuator/busrefresh" 刷新配置中心服务端，在由服务端刷新客户端
+management:
+  endpoints:  # 暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    busrefresh:
+      enabled: true
+
+# 动态刷新 定点通知
+# 公式：http://localhost:3344/actutor/bus-refresh/{destination}
+# 如： http://localhost:3344/actutor/bus-refresh/config-client:3355
