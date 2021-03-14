@@ -1,5 +1,5 @@
 server:
-  port: 3355
+  port: 3366
 
 spring:
   application:
@@ -7,14 +7,13 @@ spring:
   cloud:
     # Config 客户端配置
     config:
-      # 开启服务发现，使用配置中心服务名
       discovery:
-        enabled: true
-        service-id: CLOUD-CONFIG-CENTER
+        enabled: true   # 开启服务发现
+        service-id: CLOUD-CONFIG-CENTER # 配置中心服务名
       label: master   # 分支名称
       name: config    # 配置文件名称
       profile: dev    # 读取后缀名称
-      #uri: http://localhost:3344 # 配置中心地址
+      #uri: http://localhost:3344  # 配置中心地址
 
   # rabbitmq 相关配置，15672是Web管理界面的端口，5672是MQ访问的端口
   rabbitmq:
@@ -23,6 +22,7 @@ spring:
     username: guest
     password: guest
 
+# 服务注册到eureka 地址
 eureka:
   client:
     service-url:

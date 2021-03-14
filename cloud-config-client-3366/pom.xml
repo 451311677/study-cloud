@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-config-client-3355</artifactId>
+    <artifactId>cloud-config-client-3366</artifactId>
 
     <dependencies>
         <!-- 配置中心 客户端 -->
@@ -23,7 +23,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
-
         <!-- 配置中心客户端所需依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

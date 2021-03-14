@@ -7,20 +7,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author xiaogang.zhang
- * @date 2021/3/11
+ * @date 2021/3/14
  * @description
  */
 @RestController
-//自动刷新，curl -X POST "http://localhost:3355/actuator/refresh"
+//自动刷新
 @RefreshScope
 public class ConfigClientController {
+
+    @Value("${server.port}")
+    private String serverPort;
 
     @Value("${config.info}")
     private String configInfo;
 
     @GetMapping("/info")
-    public String getConfigInfo() {
-//        System.out.println(configInfo);
+    public String getConfigInfo(){
         return configInfo;
     }
 }
