@@ -50,4 +50,9 @@ public class PaymentController {
             return new CommonResult<Payment>(444, "，没有对应记录，id=" + id, null);
         }
     }
+
+    @GetMapping("/lb")
+    public String getPaymentPort(){
+        return serverPort;
+    }
 }
