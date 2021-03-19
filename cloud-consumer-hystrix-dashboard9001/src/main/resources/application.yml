@@ -1,0 +1,16 @@
+# 监控平台： http://localhost:9001/hystrix
+server:
+  port: 9001
+
+# 否则报错
+# Origin parameter: http://localhost:8001/hystrix.stream is not in the allowed list of proxy host names.  If it should be allowed add it to hystrix.dashboard.proxyStreamAllowList.
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
