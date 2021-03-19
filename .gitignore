@@ -4,6 +4,7 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+
 ### STS ###
 .apt_generated
 .classpath
@@ -30,3 +31,4 @@ build/
 ### VS Code ###
 .vscode/
 workspace
+/cloud-config-center-3344/basedir/**
